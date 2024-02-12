@@ -28,8 +28,8 @@ function App() {
 
 
   return <div className="app">
-  <ListHeader listName={"Holiday Tick List"}></ListHeader>
-  {sortedTasks?.map((task) => <ListItem key={task.id} task={task}/>)}
+  <ListHeader listName={"Holiday Tick List"} getData={getData}></ListHeader>
+  {sortedTasks?.map((task) => <ListItem  getData={getData} key={task.id} task={task}/>)}
   </div>;
 }
 

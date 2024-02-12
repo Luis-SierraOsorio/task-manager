@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Modal from "./Modal";
 
-export default function ListHeader({ listName }) {
+export default function ListHeader({ listName, getData }) {
   const [showModal, setShowModal] = useState(false);
   function signOut() {
     console.log("Sign Out");
@@ -19,7 +19,7 @@ export default function ListHeader({ listName }) {
         </button>
       </div>
 
-      {showModal && <Modal mode={"create"} setShowModal={setShowModal}></Modal>}
+      {showModal && <Modal mode={"create"} setShowModal={setShowModal} getData={getData}></Modal>}
     </div>
   );
 }

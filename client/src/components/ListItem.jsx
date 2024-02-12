@@ -3,7 +3,7 @@ import ProgressBar from "./ProgressBar"
 import { useState } from "react";
 import Modal from "./Modal";
 
-export default function ListItem({ task }) {
+export default function ListItem({ task, getData }) {
   const [showModal, setShowModal] = useState(false)
   return (
     <li className="list-item">
@@ -18,7 +18,7 @@ export default function ListItem({ task }) {
         <button className="delete">Delete</button>
       </div>
 
-      {showModal && <Modal mode={"edit"} setShowModal={setShowModal} task ={task}></Modal>}
+      {showModal && <Modal mode={"edit"} setShowModal={setShowModal} task ={task} getData={getData}></Modal>}
     </li>
   );
 }
