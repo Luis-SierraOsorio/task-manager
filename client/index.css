@@ -168,3 +168,30 @@ body {
     border-radius: 12px;
     border: 1.5px solid rgb(230, 232, 236);
 }
+
+.auth-container{
+    display: flex;
+    justify-content: center;
+    margin: 50px
+}
+
+.auth-container-box{
+    width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.auth-container-box form{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.auth-options{
+    display: flex;
+}
+.auth-options button{
+    width: 50%;
+    border: none;
+    padding: 10px;
+}
