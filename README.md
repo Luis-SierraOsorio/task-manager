@@ -10,9 +10,11 @@
 <!-- Everything is stored in a db -->
 
 
-<!-- This application will not run locally since db is not set up on your machine -->
-<!-- ^^^^ This might change at a later time if I decide to host this on a platform -->
-<!-- if you wish to use this on your machine you will need to set up your own db for this to run locally -->
-<!-- SQL commands are located in the server folder under data.sql to set up your own db -->
+<!-- Application is not hosted and will not run unless basic set up is done first -->
+<!-- 1. Download PostgreSQL if not already downloaded  -->
+<!-- 2. Set up PostgreSQL -->
+<!-- 3. Under the server folder navigate to the .env file and change username and password to your db settings -->
+<!-- 4. Navigation to data.sql under server and run commands on PostgreSQL command line -->
+<!-- 5. Applicaiton should now be ready to run -->
 
 <!-- this application was not so much about making pretty but about learning the concepts of RESTFUL APIs -->
