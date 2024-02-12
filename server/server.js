@@ -76,6 +76,9 @@ app.post('/signup', async(req, res) => {
         res.json({email, token});
     } catch (error) {
         console.log(error)
+        if (error){
+            res.json({detail : error.detail})
+        }
     }
 })
 

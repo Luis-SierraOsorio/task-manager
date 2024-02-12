@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useCookies } from "react-cookie";
 
 export default function Auth() {
+  const [cookies, setCookie, removeCookie] = useCookies(null);
   const [isLogIn, setIsLogIn] = useState(true);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
@@ -28,8 +30,16 @@ export default function Auth() {
       body: JSON.stringify({ email, password }),
     });
 
-    const data = response.json();
+    const data = await response.json();
     console.log(data);
+    if (data.detail) {
+      setError(data.detail);
+    } else {
+      setCookie("Email", data.email);
+      setCookie("AuthToken", data.token);
+
+      window.location.reload();
+    }
   }
 
   return (
