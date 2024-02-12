@@ -4,10 +4,27 @@ export default function Modal({ mode, setShowModal, task, getData }) {
   const editMode = mode === "edit" ? true : false;
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : "luis@test.com",
-    title: editMode ? task.title : "test",
+    title: editMode ? task.title : "",
     progress: editMode ? task.progress : 50,
-    date: editMode ? "" : new Date(),
+    date: editMode ? task.date : new Date(),
   });
+
+  async function editData(e) {
+    e.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (response.status === 200) {
+        setShowModal(false);
+        getData();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function handleChange(e) {
     console.log(data);
@@ -26,14 +43,14 @@ export default function Modal({ mode, setShowModal, task, getData }) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
-      })
+      });
 
-      if(response.status === 200){
-        console.log('It Worked')
+      if (response.status === 200) {
+        console.log("It Worked");
         setShowModal(false);
         getData();
       }
-    //   console.log(response);
+      //   console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +91,7 @@ export default function Modal({ mode, setShowModal, task, getData }) {
             type="submit"
             name=""
             id=""
-            onClick={editMode ? "" : postData}
+            onClick={editMode ? editData : postData}
           />
         </form>
       </div>
