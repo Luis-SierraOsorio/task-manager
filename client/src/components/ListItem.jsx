@@ -1,16 +1,20 @@
 import TickIcon from "./TickIcon";
 import ProgressBar from "./ProgressBar";
-import { useState } from "react";
 import Modal from "./Modal";
+import { useState } from "react";
 
 export default function ListItem({ task, getData }) {
+  // state for the modal, gets called in here as edit
   const [showModal, setShowModal] = useState(false);
 
+  // function to delete an item from the list
   async function deleteItem() {
     try {
+      // fetching specific item on the backend to delete
       const response = await fetch(`http://localhost:8000/todos/${task.id}`, {
         method: "DELETE",
       });
+      // if deleted then we simply redisplay the new information
       if (response.status === 200) {
         getData();
       }
@@ -29,14 +33,17 @@ export default function ListItem({ task, getData }) {
       </div>
 
       <div className="button-container">
+        {/* edit button */}
         <button className="edit" onClick={() => setShowModal(true)}>
           Edit
         </button>
+        {/* delete button */}
         <button className="delete" onClick={deleteItem}>
           Delete
         </button>
       </div>
 
+      {/* showing modal only if set to true */}
       {showModal && (
         <Modal
           mode={"edit"}
