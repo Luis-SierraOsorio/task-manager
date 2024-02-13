@@ -1,3 +1,4 @@
+-- sql commands to run
 CREATE DATABASE task-manager;
 
 CREATE TABLE todos(
