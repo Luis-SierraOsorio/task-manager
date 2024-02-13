@@ -18,3 +18,7 @@
 <!-- 5. Applicaiton should now be ready to run -->
 
 <!-- this application was not so much about making pretty but about learning the concepts of RESTFUL APIs -->
+
+<!-- UPDATES -->
+<!-- 02/12/2024
+CSS is very basic, will add better css with time, planning on hosting once it is nice -->
