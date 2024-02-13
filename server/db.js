@@ -1,5 +1,5 @@
 // pg library allows conneciton between PostgreSQL and backend
-const Pool = require('pg').Pool
+const Pool = require('pg').Pool;
 // this is for the hidden files
 require('dotenv').config();
 
